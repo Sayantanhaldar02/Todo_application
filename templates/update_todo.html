@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+  Cretae Todo
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <form class="card p-4 col-lg-6 shadow-lg mx-auto mt-5" method="post">
+      {% csrf_token %}
+      <h2 class="mb-3">Update Todo</h2>
+      <div class="mb-3">
+        <label for="todo_title" class="form-label">Todo Title</label>
+        <input type="text" class="form-control" id="todo_title" name="todo_title" value="{{todo.todo_title}}"  />
+      </div>
+      <div class="mb-3">
+        <label for="todo_description" class="form-label">Todo Description</label>
+        <input type="text" class="form-control" id="todo_description" name="todo_description" value="{{todo.todo_description}}"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}
+
+

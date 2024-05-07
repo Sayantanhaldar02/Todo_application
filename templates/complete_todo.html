@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+  All Todos
+{% endblock %}
+
+{% block body %}
+  <div class="container col-lg-10 mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>All Completed Tasks</h3>
+      <div>
+        <a class="btn btn-success" href="/">Add Task</a>
+        <a class="btn btn-info" href="/all-todo/">All Tasks</a>
+      </div>
+    </div>
+    <table class="table table-bordered shadow-lg mt-4 p-4">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for todo in todos %}
+          <tr>
+            <td>{{ todo.todo_title }}</td>
+            <td>{{ todo.todo_description }}</td>
+            <td>{{ todo.created_time }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
